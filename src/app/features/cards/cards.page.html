@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Cards
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="pencil" md="pencil"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cards</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <!-- کارت فعال -->
+    <app-bank-card [bankName]="'Bank'" [cardNumber]="'6037 9911 2345 6789'" [holderName]="'MEHRDAD SOHRABI'"
+      [expiry]="'07/30'" [brand]="'IR'">
+    </app-bank-card>
+
+
+    <!-- Quick Actions -->
+    <ion-grid class="quick-actions">
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" fill="clear" color="light">
+            <ion-icon name="send-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" fill="clear" color="light">
+            <ion-icon name="wallet-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" fill="clear" color="light">
+            <ion-icon name="qr-code-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Transactions -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Transaction</ion-card-title>
+      </ion-card-header>
+      <ion-list>
+        <ion-item *ngFor="let t of transactions">
+          <ion-icon [name]="t.icon" slot="start"></ion-icon>
+          <ion-label>
+            <h2>{{ t.title }}</h2>
+            <p>{{ t.date }}</p>
+          </ion-label>
+          <span [ngClass]="{'negative': t.amount < 0, 'positive': t.amount > 0}">
+            {{ t.amount > 0 ? '+' : '' }}{{ t.amount }} {{ t.currency }}
+          </span>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+  </ion-content>
+</ion-content>

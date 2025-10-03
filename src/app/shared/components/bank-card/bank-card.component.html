@@ -1,0 +1,27 @@
+<ion-card class="bank-card" [attr.aria-label]="'کارت بانکی ' + bankName" [attr.title]="'کارت بانکی ' + bankName">
+  <div class="top-row">
+    <div class="left">
+      <div class="chip" aria-hidden="false"></div>
+      <div class="bank-logo">
+        <div class="bank-name">{{ bankName }}</div>
+      </div>
+    </div>
+    <div class="right">
+      <ion-icon name="wifi-outline"></ion-icon>
+      <div class="brand-mark">{{ brand }}</div>
+    </div>
+  </div>
+
+  <div class="card-number">{{ cardNumber }}</div>
+
+  <div class="meta-row">
+    <div class="card-holder">
+      <div class="label">CARD HOLDER</div>
+      <div class="value">{{ holderName }}</div>
+    </div>
+    <div class="expiry">
+      <div class="label">VALID THRU</div>
+      <div class="value">{{ expiry }}</div>
+    </div>
+  </div>
+</ion-card>

@@ -1,0 +1,50 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+$primary-blue: #2b6ef3;
+$dark-blue: #3c5da0;
+$deep-blue: #10288f;
+
+$gradient-blue: #96a2ff;
+$gradient-pink: #ff9a9e;
+$gradient-light-pink: #fad0c4;
+$gradient-purple: #fbc2eb;
+$gradient-violet: #a18cd1;
+
+$card-black: #111111;
+$card-white: #ffffff;
+
+$text-dark: #333333;
+$text-light: #888888;
+$text-white: #ffffff;
+
+$transaction-positive: #00c853;
+$transaction-negative: #e53935;
+
+// 🎨 Mixin برای گرادینت انیمیشن‌دار
+@mixin animated-gradient {
+    background: linear-gradient(130deg,
+            $gradient-blue,
+            $gradient-pink,
+            $gradient-light-pink,
+            $gradient-purple,
+            $gradient-violet );
+    background-size: 200% 200%;
+
+    animation: cardGradientAnimation 5s ease infinite;
+}
+
+// Keyframes استاندارد
+@keyframes cardGradientAnimation {
+    0% {
+        background-position: 10% 0%;
+    }
+
+    50% {
+        background-position: 91% 100%;
+    }
+
+    100% {
+        background-position: 10% 0%;
+    }
+}

@@ -1,0 +1,41 @@
+@use "../../../theme/variables.scss" as colors;
+
+ion-toolbar {
+    --background: #{colors.$deep-blue};
+
+    ion-title {
+        --color: #{colors.$text-white};
+    }
+
+    ion-buttons {
+        ion-button {
+            --color: #{colors.$text-white};
+
+            ion-icon {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+ion-content {
+    --background: #{colors.$deep-blue};
+}
+
+.quick-actions {
+    margin: 12px;
+
+    ion-button {
+        border-radius: 16px;
+        background: #2b6ef3;
+        color: white;
+    }
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}

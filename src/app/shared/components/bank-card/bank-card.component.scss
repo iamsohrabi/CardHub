@@ -1,0 +1,107 @@
+:host {
+    display: block;
+}
+
+.bank-card {
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #414142 0%, #1a1a24 60%);
+    color: #e9eef8;
+    box-shadow: 0 5px 12px rgba(2, 6, 23, 0.6),
+        0 0 0px rgba(2, 6, 23, 0.4);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bank-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    ion-icon {
+        rotate: 270deg;
+        font-size: 35px;
+        color: #5b5b5bbf;
+    }
+}
+
+.bank-name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.chip {
+    width: 56px;
+    height: 44px;
+    border-radius: 6px;
+    background-image: url('../../../../assets/banks/shetab.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.brand-mark {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff7e00, #ffd400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #000000;
+}
+
+.card-number {
+    font-family: 'Courier New', monospace;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+}
+
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 8px;
+}
+
+.label {
+    font-size: 0.66rem;
+    color: rgba(233, 238, 248, 0.6);
+}
+
+.value {
+    font-weight: 700;
+}
+
+@media (max-width: 420px) {
+    .bank-card {
+        height: 186px;
+    }
+}

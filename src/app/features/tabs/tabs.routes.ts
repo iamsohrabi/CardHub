@@ -17,7 +17,7 @@ export const routes: Routes = [
           import('../cards/cards.page').then((m) => m.CardsPage),
       },
       {
-        path: 'tab3',
+        path: 'profile',
         loadComponent: () =>
           import('../profile/profile.page').then((m) => m.ProfilePage),
       },

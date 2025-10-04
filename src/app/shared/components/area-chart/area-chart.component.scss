@@ -1,0 +1,24 @@
+.chart-card {
+    background: transparent;
+    /* 👈 شفاف */
+    border-radius: 24px;
+    padding: 1rem;
+    box-shadow: none;
+    /* اگر سایه نمی‌خوای */
+}
+
+::ng-deep .apexcharts-legend {
+    justify-content: center !important;
+    gap: 16px;
+}
+
+::ng-deep .apexcharts-legend-text {
+    color: #777 !important;
+    font-weight: 500;
+}
+
+ion-segment {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    width: 90%;
+}

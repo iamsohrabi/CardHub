@@ -1,0 +1,217 @@
+.custom-swiper {
+    width: 100%;
+    height: auto;
+    padding: 10px 0 40px; // فضای بیشتر برای pagination
+
+    &.with-pagination {
+        padding-bottom: 50px;
+    }
+
+    .swiper-slide-custom {
+        height: auto;
+
+        app-card {
+            height: 100%;
+            display: block;
+        }
+    }
+
+    .custom-slide {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        padding: 20px;
+        color: white;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+
+        h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+    }
+
+    .image-slide {
+        height: 250px;
+        border-radius: 15px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+
+            h3 {
+                margin: 0 0 5px 0;
+                font-size: 1.3em;
+            }
+
+            p {
+                margin: 0;
+                opacity: 0.9;
+                font-size: 0.9em;
+            }
+        }
+    }
+}
+
+// استایل‌های پیش‌فرض Swiper Pagination
+swiper-container::part(bullet-active) {
+    background-color: var(--ion-color-primary);
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}
+
+swiper-container::part(bullet) {
+    background-color: var(--ion-color-medium);
+    opacity: 0.6;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+swiper-container::part(pagination) {
+    bottom: 10px !important;
+}
+
+// استایل برای pagination نوع progressbar
+swiper-container::part(pagination-progressbar) {
+    background-color: var(--ion-color-light);
+    border-radius: 10px;
+
+    .swiper-pagination-progressbar-fill {
+        background-color: var(--ion-color-primary);
+        border-radius: 10px;
+    }
+}
+
+// استایل برای pagination نوع fraction
+swiper-container::part(pagination-fraction) {
+    color: var(--ion-color-dark);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+// استایل برای navigation buttons
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+    color: var(--ion-color-primary);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: var(--ion-color-primary);
+        color: white;
+        transform: scale(1.1);
+    }
+
+    &::after {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+// Pagination سفارشی
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 0 16px;
+
+    .pagination-bullet {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid var(--ion-color-primary);
+        background: transparent;
+        color: var(--ion-color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: var(--ion-color-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        &.active {
+            background: var(--ion-color-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+    }
+}
+
+// استایل برای bullet های سفارشی در خود Swiper
+swiper-container .custom-bullet {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--ion-color-medium);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+swiper-container .custom-bullet.swiper-pagination-bullet-active {
+    background: var(--ion-color-primary);
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+:host ::ng-deep .swiper-pagination {
+    margin-top: 20px; // فاصله از اسلایدر
+}
+
+:host ::ng-deep .swiper-pagination-bullet {
+    margin: 0 6px; // فاصله بین خود بولت‌ها
+    background-color: #666; // رنگ دلخواه
+    opacity: 0.5;
+}
+
+:host ::ng-deep .swiper-pagination-bullet-active {
+    background-color: #000; // رنگ بولت فعال
+    opacity: 1;
+}

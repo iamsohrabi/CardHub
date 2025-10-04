@@ -1,0 +1,48 @@
+<swiper-container #swiperContainer init="false" class="custom-swiper" [class.with-pagination]="pagination">
+
+  <!-- حالت استفاده با Template -->
+  <swiper-slide *ngFor="let item of items; let i = index; let first = first; let last = last" [class]="slideClass"
+    [class.first-slide]="first" [class.last-slide]="last">
+
+    <ng-container *ngIf="itemTemplate">
+      <ng-container *ngTemplateOutlet="itemTemplate; context: { 
+          $implicit: item, 
+          index: i,
+          isActive: isActive(i)
+        }">
+      </ng-container>
+    </ng-container>
+
+    <!-- حالت پیش‌فرض (برای backward compatibility) -->
+    <ng-container *ngIf="!itemTemplate">
+      <div class="default-slide">
+        <h4>Item {{ i + 1 }}</h4>
+        <p>{{ item | json }}</p>
+      </div>
+    </ng-container>
+  </swiper-slide>
+
+</swiper-container>
+
+<!-- Pagination سفارشی -->
+<div class="custom-pagination" *ngIf="pagination && paginationType === 'custom'">
+  <button *ngFor="let item of items; let i = index" class="pagination-bullet" [class.active]="isActive(i)"
+    (click)="slideTo(i)">
+    {{ i + 1 }}
+  </button>
+</div>
+
+<!-- کنترل‌های سفارشی navigation -->
+<div class="custom-navigation" *ngIf="navigation && paginationType === 'custom'">
+  <ion-button fill="clear" (click)="slidePrev()">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </ion-button>
+
+  <div class="slide-counter">
+    {{ activeSlideIndex + 1 }} / {{ items.length }}
+  </div>
+
+  <ion-button fill="clear" (click)="slideNext()">
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-button>
+</div>

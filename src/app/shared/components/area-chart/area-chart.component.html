@@ -1,0 +1,17 @@
+<apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+  [dataLabels]="chartOptions.dataLabels!" [stroke]="chartOptions.stroke!" [yaxis]="chartOptions.yaxis!"
+  [legend]="chartOptions.legend!" [tooltip]="chartOptions.tooltip!" [fill]="chartOptions.fill!"
+  [colors]="chartOptions.colors || []" [grid]="chartOptions.grid!">
+</apx-chart>
+
+<ion-segment color="primary" value="primary">
+  <ion-segment-button value="weak">
+    <ion-label>This Week</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="month">
+    <ion-label>This Month</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="year">
+    <ion-label>This Year</ion-label>
+  </ion-segment-button>
+</ion-segment>

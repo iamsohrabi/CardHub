@@ -18,53 +18,19 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
 
-    <!-- کارت فعال -->
-    <app-bank-card [bankName]="'Bank'" [cardNumber]="'6037 9911 2345 6789'" [holderName]="'MEHRDAD SOHRABI'"
-      [expiry]="'07/30'" [brand]="'IR'">
-    </app-bank-card>
+  <!-- Swiper برای کارت‌ها -->
+  <app-swiper [items]="cards" [slidesPerView]="0.7" [spaceBetween]="8" [pagination]="true" [paginationType]="'bullets'"
+    [navigation]="false">
+
+    <ng-template let-item let-index="index">
+      <app-bank-card [bankName]="item.bankName" [cardNumber]="item.cardNumber" [holderName]="item.holderName"
+        [expiry]="item.expiry" [brand]="item.brand">
+      </app-bank-card>
+    </ng-template>
+
+  </app-swiper>
+  <app-area-chart></app-area-chart>
 
 
-    <!-- Quick Actions -->
-    <ion-grid class="quick-actions">
-      <ion-row>
-        <ion-col>
-          <ion-button expand="block" fill="clear" color="light">
-            <ion-icon name="send-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button expand="block" fill="clear" color="light">
-            <ion-icon name="wallet-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button expand="block" fill="clear" color="light">
-            <ion-icon name="qr-code-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <!-- Transactions -->
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Transaction</ion-card-title>
-      </ion-card-header>
-      <ion-list>
-        <ion-item *ngFor="let t of transactions">
-          <ion-icon [name]="t.icon" slot="start"></ion-icon>
-          <ion-label>
-            <h2>{{ t.title }}</h2>
-            <p>{{ t.date }}</p>
-          </ion-label>
-          <span [ngClass]="{'negative': t.amount < 0, 'positive': t.amount > 0}">
-            {{ t.amount > 0 ? '+' : '' }}{{ t.amount }} {{ t.currency }}
-          </span>
-        </ion-item>
-      </ion-list>
-    </ion-card>
-
-  </ion-content>
 </ion-content>
